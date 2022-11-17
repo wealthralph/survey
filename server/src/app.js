@@ -1,8 +1,8 @@
-const express = require("express")
-const passport = require('passport')
-const GoogleStrategy = require("passport-google-oauth20").Strategy
-const app = express()
+const express = require("express");
+require("../models/user.model");
+require("../services/passport.js");
 
-passport.use(new GoogleStrategy())
+const app = express();
+require("../routes/auth.routes")(app);
 
-module.exports = app
+module.exports = app;
