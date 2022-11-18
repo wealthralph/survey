@@ -1,10 +1,9 @@
 const http = require('http')
 const connectDB = require('../config/mongodb.config')
-const dotenv =require('dotenv').config()
+require('dotenv').config()
 
-
-connectDB()
 const app = require('./app')
+connectDB()
 const PORT = process.env.PORT || 5000
 
 const server = http.createServer(app)

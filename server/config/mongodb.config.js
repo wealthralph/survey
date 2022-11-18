@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const {mongoDb} = require('./keys')
-console.log(mongoDb)
 
 const connectDB = async () => {
     try{
