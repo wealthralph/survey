@@ -4,7 +4,7 @@
   "description": "Emaily server",
   "main": "src/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
     "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./_build.js"
