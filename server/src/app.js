@@ -7,6 +7,10 @@ require("../models/user.model");
 require("../services/passport.js");
 
 const app = express();
+ 
+app.get('/', (req, res) => {
+    res.send({geef : "fosvdvsvsdv"})
+})
 
 app.use(
     cookieSession({
