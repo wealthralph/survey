@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const keys = require('../config/keys');
+const key = require('../config/key');
 const passport = require("passport");
 const cookieSession =require('cookie-session')
 require("../models/user.model");
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.use(
     cookieSession({
         maxAge: 30 *24 * 60* 60 * 1000,
-        keys:[keys.cookieKey]
+        keys:[key.cookieKey]
     })
     )
     
