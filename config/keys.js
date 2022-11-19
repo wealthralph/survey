@@ -1,9 +1,7 @@
-const dotenv =require('dotenv').config()
 
-module.exports = {
-    googleClientID: '155455928697-f8hehk87ck23ulbjaiosu9rqnb35ui02.apps.googleusercontent.com',
-    googleClientSecret: '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',
-    mongoDb: process.env.MONGO_URI,
-    cookieKey: process.env.COOKIE
-    
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./prod')
+}else {
+    module.exports = require('./dev')
 }
