@@ -2,12 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Emaily server",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node server.js",
     "watch": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./_build.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "author": "ralph",
   "license": "ISC",
