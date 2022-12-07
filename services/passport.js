@@ -1,45 +1,39 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const { googleClientID, googleClientSecret } = require("../config/key");
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
+const User = mongoose.model("users");
 
-
-
-
-const User =mongoose.model('users')
-
-passport.serializeUser((user,done) => {
-  done(null, user.id)
+passport.serializeUser((user, done) => {
+  done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id)
-    .then(user => {
-      done(null, user)
-    })
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
 });
 
 passport.use(
-    new GoogleStrategy(
-      {
-        clientID: googleClientID,
-        clientSecret: googleClientSecret,
-        callbackURL: "/auth/google/callback",
-        proxy: true
-      },
-      (accessToken, refreshToken, Profile, done) => {
-        User.findOne({googleId: Profile.id}).then(existingUser => {
-          if(existingUser) {
-            done(null, existingUser)
-          }else {
-            new User({googleId: Profile.id}).save()
-            .then(user => (null, user))
+  new GoogleStrategy(
+    {
+      clientID: googleClientID,
+      clientSecret: googleClientSecret,
+      callbackURL: "/auth/google/callback",
+      proxy: true,
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id });
 
-          }
-        })
+      if (existingUser) {
+        return done(null, existingUser);
       }
-    )
-  );
 
-  module.exports
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
+    }
+  )
+);
+
+module.exports;

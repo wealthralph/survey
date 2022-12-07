@@ -1,0 +1,22 @@
+.nav--wrapper {
+    background-color: gainsboro;
+    padding: 1rem;
+    margin: 0;
+}
+
+.nav--container {
+    max-width: 100rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    font-size: 1.6rem;
+}
+
+.nav--links {
+list-style: none;
+padding-inline-start: 0;
+padding: 0;
+margin: 0;
+}
