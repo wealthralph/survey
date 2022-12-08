@@ -8,7 +8,8 @@
     "watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
-    "dev": " concurrently  \"npm run watch\" \"npm run client\" "
+    "dev": " concurrently  \"npm run watch\" \"npm run client\" ",
+    "render": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "ralph",
   "license": "ISC",
